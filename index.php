@@ -1,49 +1,14 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>this is from html</h1>
-    <form action="index.php" method="GET">
-        <label for="">Email</label>
-        <br>
-        <input type="text" name="email" placeholder="Email" >
-        <br><br>
-        <label for="">Password</label>
-        <br>
-        <input type="password" name="pass" placeholder="password">
-        <br>
-        <input type="submit" name="submit" value="Submit">
-    </form>
-
-    <form action="index.php" method="post">
-        <label for="c1">c1</label>
-     <input type="radio" name="ch" value="c1">
-     <br>
-   <label for="c1">c2</label>
-    <input type="radio" name="ch" value="c2">
-    <br>
-   <label for="c1">c3</label>
-     <input type="radio" name="ch" value="c3">
-     <br>
-     <input type="submit" name="sub" placeholder="submit">
-
-
-
-
-    </form>
-</body>
-</html>
-
 <?php echo "hello world <br>" ; 
 $hi = 987 ; 
 if ( isset($_GET["submit"])) {
 if (isset($_GET["email"]) && isset($_GET["pass"]) ) {
-    $email = $_GET["email"];
+
+    // $email = $_GET["email"];
+    // $email = filter_input(INPUT_GET,"email",FILTER_SANITIZE_SPECIAL_CHARS) ; // this tnhi kaml special chars 
+     $email = filter_input(INPUT_GET,"email",FILTER_VALIDATE_EMAIL) ; //returns null when email is not an email 
+     // another types of validations : int_number : this if you input (oueng78) will return just 78
+     // in genrale : validate retrun the value or null , sanitize tsfiha  
+
     $password = $_GET["pass"];
     echo "i am {$hi} years old, my email is {$email} and my password is {$password}";
 } else {
@@ -90,3 +55,46 @@ if  (isset($_POST["sub"])) {
 
 
 ?>
+<!-- string functions in bro code vidio  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>this is from html</h1>
+    <form action="index.php" method="GET">
+        <label for="">Email</label>
+        <br>
+        <input type="text" name="email" placeholder="Email" >
+        <br><br>
+        <label for="">Password</label>
+        <br>
+        <input type="password" name="pass" placeholder="password">
+        <br>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+
+    <form action="index.php" method="post">
+        <label for="c1">c1</label>
+     <input type="radio" name="ch" value="c1">
+     <br>
+   <label for="c1">c2</label>
+    <input type="radio" name="ch" value="c2">
+    <br>
+   <label for="c1">c3</label>
+     <input type="radio" name="ch" value="c3">
+     <br>
+     <input type="submit" name="sub" placeholder="submit">
+
+
+
+
+    </form>
+</body>
+</html>
+
