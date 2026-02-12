@@ -82,7 +82,7 @@ if  (isset($_POST["sub"])) {
   }
  }
  else {
-    echo "no chosed choices please chose a choice " ; 
+    echo "no chosed choices please chose a choice " . "this is so dumb" ; 
  }
 
 }
